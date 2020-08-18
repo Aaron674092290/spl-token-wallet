@@ -1,11 +1,11 @@
-import { Button, Row, Steps } from 'antd'
-import React, { useCallback, useState } from 'react'
-import styled from 'styled-components'
+import { Button, Row, Steps } from 'antd';
+import React, { useCallback, useState } from 'react';
+import styled from 'styled-components';
 
-import Step1 from './Step1'
-import Step2 from './Step2'
+import Step1 from './Step1';
+import Step2 from './Step2';
 
-const { Step } = Steps
+const { Step } = Steps;
 
 const Wrapper = styled.div`
   height: 100%;
@@ -27,8 +27,7 @@ const Wrapper = styled.div`
     border-radius: 7px;
     top: 14px;
   }
-  .ant-steps-item-content
-    > .ant-steps-item-title::after {
+  .ant-steps-item-content > .ant-steps-item-title::after {
     background-color: #3e5af2;
   }
   .ant-steps-item-finish
@@ -37,30 +36,30 @@ const Wrapper = styled.div`
     > .ant-steps-item-title::after {
     background-color: #3e5af2;
   }
-`
+`;
 const ContentWrapper = styled.div`
   padding-top: 30px;
-`
+`;
 const ButtonWrapper = styled(Row)`
   position: absolute;
   bottom: 37px;
   left: 50%;
   transform: translateX(-50%);
-`
+`;
 const Send = () => {
-  const [current, setCurrent] = useState(0)
+  const [current, setCurrent] = useState(0);
   const HandleNext = useCallback(() => {
-    setCurrent(1)
-  }, [])
+    setCurrent(1);
+  }, []);
   const StepsList = [
-    { content: <Step1  />, title: 'Send Tokens' },
-    { content: <Step2 />, title: 'Confirm' }
-  ]
-  const RenderContent = StepsList[current].content
+    { content: <Step1 />, title: 'Send Tokens' },
+    { content: <Step2 />, title: 'Confirm' },
+  ];
+  const RenderContent = StepsList[current].content;
   return (
     <Wrapper>
-      <Steps current={current} style={{width:460,margin: '0 auto'}}>
-        {StepsList.map(item => (
+      <Steps current={current} style={{ width: 460, margin: '0 auto' }}>
+        {StepsList.map((item) => (
           <Step key={item.title} title={item.title} />
         ))}
       </Steps>
@@ -68,17 +67,12 @@ const Send = () => {
       <ButtonWrapper>
         {current < 2 ? (
           <>
-            <Button
-              type='primary'
-              ghost
-              size='large'
-              style={{ width: current > 0 ? 200 : 300 }}
-            >
+            <Button type="primary" ghost size="large" style={{ width: 200 }}>
               Cancel
             </Button>
             <Button
-              type='primary'
-              size='large'
+              type="primary"
+              size="large"
               style={{ width: 200, marginLeft: 24 }}
               onClick={HandleNext}
             >
@@ -88,16 +82,16 @@ const Send = () => {
         ) : (
           <>
             <Button
-              type='primary'
+              type="primary"
               ghost
-              size='large'
+              size="large"
               style={{ width: current > 0 ? 200 : 300 }}
             >
               Reject
             </Button>
             <Button
-              type='primary'
-              size='large'
+              type="primary"
+              size="large"
               style={{ width: 200, marginLeft: 24 }}
               onClick={HandleNext}
             >
@@ -107,6 +101,6 @@ const Send = () => {
         )}
       </ButtonWrapper>
     </Wrapper>
-  )
-}
-export default React.memo(Send)
+  );
+};
+export default React.memo(Send);

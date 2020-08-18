@@ -1,14 +1,14 @@
-import { Avatar, Col, Row } from 'antd'
-import React from 'react'
-import styled from 'styled-components'
+import { Avatar, Col, Row } from 'antd';
+import React from 'react';
+import styled from 'styled-components';
 const Wrapper = styled.div`
   border-radius: 4px;
   background-color: #34363f;
-`
+`;
 const Amount = styled.span`
   font-size: 44px;
   line-height: initial;
-`
+`;
 const RowWrapper = styled(Row)`
   padding: 12px 0 16px;
   margin: 0 20px;
@@ -17,11 +17,11 @@ const RowWrapper = styled(Row)`
   &:last-child {
     border-bottom: none;
   }
-`
+`;
 const Step2 = () => {
   return (
     <Wrapper>
-      <RowWrapper align='middle' justify='space-between'>
+      <RowWrapper align="middle" justify="space-between">
         <Col>
           <Avatar
             size={48}
@@ -41,14 +41,14 @@ const Step2 = () => {
           </div>
         </Col>
       </RowWrapper>
-      <RowWrapper align='middle' justify='space-between'>
+      <RowWrapper align="middle" justify="space-between">
         <Col>
           <span
             style={{
               fontSize: 16,
               verticalAlign: 'middle',
               marginLeft: 60,
-              color: '#fff'
+              color: '#fff',
             }}
           >
             GAS FEE
@@ -63,14 +63,14 @@ const Step2 = () => {
           </div>
         </Col>
       </RowWrapper>
-      <RowWrapper align='middle' justify='space-between'>
+      <RowWrapper align="middle" justify="space-between">
         <Col>
           <span
             style={{
               fontSize: 20,
               verticalAlign: 'middle',
               marginLeft: 60,
-              color: '#fff'
+              color: '#fff',
             }}
           >
             TOTAL
@@ -86,6 +86,6 @@ const Step2 = () => {
         </Col>
       </RowWrapper>
     </Wrapper>
-  )
-}
-export default React.memo(Step2)
+  );
+};
+export default React.memo(Step2);
