@@ -77,7 +77,7 @@ const Account = (props) => {
     setShowAddToken(true);
   }, []);
   const PanelHeader = ({ tokenId, name, addressId }) => (
-    <Row align="middle" justify="space-between" style={{ padding: '0 16px' }}>
+    <Row align="middle" justify="space-between" style={{ padding: '0 16px', height: 74 }}>
       <Col
         style={{
           display: 'flex',
@@ -90,10 +90,10 @@ const Account = (props) => {
             {name.slice(0, 1)}
           </Avatar>
         ) : (
-          <img src={imageMapping.logo} width="30" alt="" />
-        )}
+            <img src={imageMapping.logo} width="30" alt="" />
+          )}
         <CoinName>{name}</CoinName>
-        <div>
+        <div style={{ paddingTop: tokenId ? 18 : 0 }}>
           {addressId}
           <CopyToClipboard
             onCopy={(text, result) => result && message.success('copy success')}
@@ -106,7 +106,7 @@ const Account = (props) => {
           </CopyToClipboard>
           {tokenId && (
             <div style={{ color: '#fff' }}>
-              {'Token ID'}
+              <span style={{ fontWeight: 500 }}>{'Token ID'}</span>
               <span style={{ opacity: 0.6, marginLeft: '1em' }}>{tokenId}</span>
             </div>
           )}
@@ -114,8 +114,7 @@ const Account = (props) => {
       </Col>
       <Col>
         <Row
-          align="middle"
-          style={{ fontWeight: 'bold', fontFamily: 'Roboto', marginRight: 24 }}
+          style={{ fontWeight: 'bold', fontFamily: 'Roboto', fontStyle: 'italic', marginRight: 24, alignItems: 'baseline' }}
         >
           <Col style={{ fontSize: 44, marginRight: 6 }}>45.62</Col>
           <Col style={{ fontSize: 16 }}>{name}</Col>
@@ -205,7 +204,7 @@ const Account = (props) => {
           }
           key="1"
         >
-          <Row align="middle" justify="space-between">
+          <Row align="middle" justify="space-between" style={{ height: 60 }}>
             <Col>
               Token Name: <span>SOL</span>
             </Col>

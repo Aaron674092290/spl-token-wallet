@@ -41,6 +41,16 @@ const LayoutWrapper = styled(Layout)`
   .ant-menu-inline {
     border: none;
   }
+  .ant-menu-item {
+    padding-left: 8px!important;
+    .ant-select {
+      width: 196px;
+    }
+  }
+  .ant-select-selection-item {
+    display: flex;
+    align-items:center;
+  }
 `;
 const PageContent = styled(Content)`
   background: #2b2c34;
@@ -82,8 +92,7 @@ const UserAvatar = styled(Avatar)`
   margin-right: 12px;
 `;
 const SelectOption = styled(Option)`
-  height: 58px;
-  line-height: 58px;
+  background-color: #34363e;
 `;
 const ArrowWrapper = styled.div`
   width: 24px;
@@ -108,9 +117,9 @@ const MainPage = () => {
   const handleChange = useCallback((value) => {
     setIsNetwork(value === 'NETWORK');
   }, []);
-  const DownArrow = ({ isActive }) => (
+  const DownArrow = () => (
     <ArrowWrapper>
-      <DownOutlined rotate={isActive ? -180 : 0} />
+      <DownOutlined rotate={0} style={{ color: '#fff' }} />
     </ArrowWrapper>
   );
   return (
@@ -143,7 +152,7 @@ const MainPage = () => {
           </Button>
         </Row>
       </Modal>
-      <Sider width={200}>
+      <Sider width={226}>
         <Title>ACCOUNT</Title>
         <AccountMenu
           mode="inline"
@@ -174,49 +183,49 @@ const MainPage = () => {
           <Menu.Item key="Main Beta">
             <Select
               defaultValue="Main Beta"
-              dropdownStyle={{ boxShadow: 'none', border: '1px solid #98a1af' }}
+              dropdownStyle={{ boxShadow: 'none', border: '1px solid #98a1af', background: '#34363e' }}
               bordered={false}
-              style={{ width: '136px' }}
+              style={{ width: '196px', color: '#fff' }}
               onChange={handleChange}
               suffixIcon={DownArrow}
+              className='sideMenu'
             >
-              <SelectOption value="Main Beta">
+              <SelectOption value="Main Beta" className='SelectOption' style={{ marginTop: 20 }}>
                 <BlockOutlined
                   style={{
                     fontSize: 18,
-                    marginRight: 6,
+                    marginRight: 28,
                     verticalAlign: 'middle',
                   }}
                 />
                 Main Beta
               </SelectOption>
-              <SelectOption value="DEVNET">
+              <SelectOption value="DEVNET" className='SelectOption'>
                 {' '}
                 <HeatMapOutlined
                   style={{
                     fontSize: 18,
-                    marginRight: 6,
+                    marginRight: 28,
                     verticalAlign: 'middle',
                   }}
                 />
                 DEVNET
               </SelectOption>
-              <SelectOption value="TESTNET">
-                {' '}
+              <SelectOption value="TESTNET" className='SelectOption'>
                 <BuildOutlined
                   style={{
                     fontSize: 18,
-                    marginRight: 6,
+                    marginRight: 28,
                     verticalAlign: 'middle',
                   }}
                 />
                 TESTNET
               </SelectOption>
-              <SelectOption value="NETWORK">
+              <SelectOption value="NETWORK" className='SelectOption'>
                 <GlobalOutlined
                   style={{
                     fontSize: 18,
-                    marginRight: 6,
+                    marginRight: 28,
                     verticalAlign: 'middle',
                   }}
                 />
@@ -239,8 +248,8 @@ const MainPage = () => {
             isNetwork={isNetwork}
           />
         ) : (
-          <Send />
-        )}
+            <Send />
+          )}
       </PageContent>
     </LayoutWrapper>
   );

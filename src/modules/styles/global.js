@@ -94,4 +94,20 @@ html,body{
   height:52px;
   background-color: #232429;
 }
+.ant-modal-content,.ant-modal-header {
+  border-radius: 20px;
+  background: #2b2c34;
+}
+.ant-modal-header {
+  padding-top: 32px;
+}
+.SelectOption {
+    margin-bottom: 33px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &:hover {
+      color: #fff;
+    }
+}
 `;

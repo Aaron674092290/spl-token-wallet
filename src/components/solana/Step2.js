@@ -10,10 +10,11 @@ const Amount = styled.span`
   line-height: initial;
 `;
 const RowWrapper = styled(Row)`
-  padding: 12px 0 16px;
+  height: 98px;
+  align-items:center;
   margin: 0 20px;
   border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
-  font-style: italic;
+  // font-style: italic;
   &:last-child {
     border-bottom: none;
   }
@@ -36,7 +37,7 @@ const Step2 = () => {
           </span>
         </Col>
         <Col style={{ marginRight: 65, textAlign: 'right' }}>
-          <div style={{ color: '#fff' }}>
+          <div style={{ color: '#fff', fontStyle: 'italic', fontWeight: 900, fontFamily: 'Roboto' }}>
             <Amount>45.62</Amount>BTC
           </div>
         </Col>
@@ -49,13 +50,15 @@ const Step2 = () => {
               verticalAlign: 'middle',
               marginLeft: 60,
               color: '#fff',
+              fontStyle: 'italic',
+              fontWeight: 900, fontFamily: 'Roboto'
             }}
           >
             GAS FEE
           </span>
         </Col>
-        <Col style={{ marginRight: 65, textAlign: 'right' }}>
-          <div style={{ color: '#fff' }}>
+        <Col style={{ marginRight: 65, textAlign: 'right', fontStyle: 'italic' }}>
+          <div style={{ color: '#fff', fontWeight: 900, fontFamily: 'Roboto' }}>
             <Amount>0.01</Amount>SOL
           </div>
           <div>
@@ -71,6 +74,8 @@ const Step2 = () => {
               verticalAlign: 'middle',
               marginLeft: 60,
               color: '#fff',
+              fontStyle: 'italic',
+              fontWeight: 900, fontFamily: 'Roboto'
             }}
           >
             TOTAL
@@ -78,14 +83,14 @@ const Step2 = () => {
         </Col>
         <Col style={{ marginRight: 65, textAlign: 'right' }}>
           <div>Amount + GAS FEE</div>
-          <div style={{ color: '#fff' }}>
+          <div style={{ color: '#fff', fontStyle: 'italic', fontWeight: 900, fontFamily: 'Roboto' }}>
             <Amount>45.62</Amount>
             {' BTC '}
             <Amount>{'+ '}0.01</Amount>SOL
           </div>
         </Col>
       </RowWrapper>
-    </Wrapper>
+    </Wrapper >
   );
 };
 export default React.memo(Step2);
